@@ -70,7 +70,7 @@ def main():
         elif user_choice == 3:
             account_balance = withdraw(account_balance)  # Withdraw money
         elif user_choice == 4:
-            print("Goodbye!")
+            print("Thank you for banking with us. We cherish you. Goodbye!")
             break  # Exit the loop and end the program
 
 if __name__ == "__main__":
