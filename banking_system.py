@@ -27,7 +27,21 @@ def get_user_choice():
 def check_balance():
     print(f"Your current balance is: ${account_balance}")
 
-# Main function to start the program
+# Function to handle deposit
+def deposit(balance):
+    try:
+        amount = float(input("Enter amount to deposit: "))
+        if amount > 0:
+            balance += amount
+            print(f"Successfully deposited ${amount:.2f}. Your new balance is ${balance:.2f}.")
+        else:
+            print("Deposit amount must be positive.")
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+    return balance
+
+
+# Updated  main function to include deposit functionality
 def main():
     global account_balance
     while True:
@@ -37,11 +51,9 @@ def main():
         if user_choice == 1:
             check_balance()  # Show balance
         elif user_choice == 2:
-            # Deposit functionality (to be added in a later step)
-            print("Deposit functionality will be added next.")
+            account_balance = deposit(account_balance)  # Deposit money
         elif user_choice == 3:
-            # Withdraw functionality (to be added in a later step)
-            print("Withdraw functionality will be added next.")
+            print("Withdraw functionality will be added next.")  # Placeholder
         elif user_choice == 4:
             print("Goodbye!")
             break  # Exit the loop and end the program
