@@ -40,8 +40,23 @@ def deposit(balance):
         print("Invalid input. Please enter a valid number.")
     return balance
 
+# Function to handle withdrawal
+def withdraw(balance):
+    try:
+        amount = float(input("Enter amount to withdraw: "))
+        if amount > 0:
+            if amount <= balance:
+                balance -= amount
+                print(f"Successfully withdrew ${amount:.2f}. Your new balance is ${balance:.2f}.")
+            else:
+                print("Insufficient funds. Please try a smaller amount.")
+        else:
+            print("Withdrawal amount must be positive.")
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+    return balance
 
-# Updated  main function to include deposit functionality
+# Updated  main function to include all functionalities
 def main():
     global account_balance
     while True:
@@ -53,7 +68,7 @@ def main():
         elif user_choice == 2:
             account_balance = deposit(account_balance)  # Deposit money
         elif user_choice == 3:
-            print("Withdraw functionality will be added next.")  # Placeholder
+            account_balance = withdraw(account_balance)  # Withdraw money
         elif user_choice == 4:
             print("Goodbye!")
             break  # Exit the loop and end the program
